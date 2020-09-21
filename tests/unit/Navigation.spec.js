@@ -14,4 +14,11 @@ describe('Navigation.vue', () => {
 
         expect(element.text()).toContain(expected);
     });
+
+    it('should contain two buttons', () => {
+        let buttons = wrapper.findAll('button');
+        let expected = 2;
+
+        expect(buttons.length).toBe(expected);
+    });
 });
