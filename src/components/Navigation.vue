@@ -27,7 +27,6 @@ export default {
       if (path === "Eventful") {
         router.push({ name: "Home" });
       }
-      console.log(path);
     };
 
     return { changeRoute };
