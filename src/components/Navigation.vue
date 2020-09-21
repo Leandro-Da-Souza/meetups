@@ -1,18 +1,37 @@
 <template>
   <div class="container">
     <div class="left">
-      <h1>Eventful</h1>
+      <h1 @click="changeRoute">Eventful</h1>
     </div>
     <div class="right">
-      <button>My Events</button>
-      <button>About</button>
+      <button @click="changeRoute">My Events</button>
+      <button @click="changeRoute">About</button>
     </div>
   </div>
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
   name: "Navigation",
+  setup() {
+    const changeRoute = (e) => {
+      let path = e.path[0].innerText;
+      if (path === "My Events") {
+        router.push({ name: "My Events" });
+      }
+      if (path === "About") {
+        router.push({ name: "About" });
+      }
+      if (path === "Eventful") {
+        router.push({ name: "Home" });
+      }
+      console.log(path);
+    };
+
+    return { changeRoute };
+  },
 };
 </script>
 
