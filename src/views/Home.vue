@@ -3,6 +3,7 @@
         <ul>
             <li v-for="event in pastEvents" :key="event.id">
                 {{ event.category }}
+                <img :src="event.picture" alt="" />
             </li>
         </ul>
     </div>
@@ -24,14 +25,20 @@ export default {
         const dbComingEvents = DB.events[1].comingEvents;
         const dbPastEvents = DB.events[0].pastEvents;
 
+        const getRandomPic = (event) => {
+            return (event.picture = `http://placeimg.com/100/100/${event.category}`);
+        };
+
         dbComingEvents.forEach((event) => {
             event.id = uuidv4();
             event.attending = false;
+            getRandomPic(event);
         });
 
         dbPastEvents.forEach((event) => {
             event.id = uuidv4();
             event.attended = false;
+            getRandomPic(event);
         });
 
         store.commit('SET_COMING_EVENTS', dbComingEvents);
