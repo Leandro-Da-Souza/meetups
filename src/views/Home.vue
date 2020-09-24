@@ -21,17 +21,29 @@ export default {
     setup() {
         const store = useStore();
 
-        store.commit('SET_COMING_EVENTS', DB.events[1]);
-        store.commit('SET_PAST_EVENTS', DB.events[0]);
+        const dbComingEvents = DB.events[1].comingEvents;
+        const dbPastEvents = DB.events[0].pastEvents;
 
-        const comingEvents = computed(
-            () => store.state.comingEvents.comingEvents
-        );
-        const pastEvents = computed(() => store.state.pastEvents.pastEvents);
-
-        pastEvents.value.forEach((event) => {
+        dbComingEvents.forEach((event) => {
             event.id = uuidv4();
+            event.attending = false;
         });
+
+        dbPastEvents.forEach((event) => {
+            event.id = uuidv4();
+            event.attended = false;
+        });
+
+        store.commit('SET_COMING_EVENTS', dbComingEvents);
+        store.commit('SET_PAST_EVENTS', dbPastEvents);
+
+        const comingEvents = computed(() => store.state.comingEvents);
+        const pastEvents = computed(() => store.state.pastEvents);
+
+        console.log(comingEvents.value);
+        // pastEvents.value.forEach((event) => {
+        //     event.id = uuidv4();
+        // });
         return {
             comingEvents,
             pastEvents,
