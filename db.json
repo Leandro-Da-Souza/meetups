@@ -1,0 +1,68 @@
+{
+    "events": [
+        {
+            "pastEvents": [
+                {
+                    "title": "",
+                    "category": "Music",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                },
+                {
+                    "title": "",
+                    "category": "Religion",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                },
+                {
+                    "title": "",
+                    "category": "Food",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                },
+                {
+                    "title": "",
+                    "category": "Music",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                }
+            ]
+        },
+        {
+            "comingEvents": [
+                {
+                    "title": "",
+                    "category": "",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                },
+                {
+                    "title": "",
+                    "category": "",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                },
+                {
+                    "title": "",
+                    "category": "",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                },
+                {
+                    "title": "",
+                    "category": "",
+                    "photo": "",
+                    "location": "",
+                    "date": ""
+                }
+            ]
+        }
+    ]
+}
