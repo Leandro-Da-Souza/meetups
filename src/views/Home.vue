@@ -23,7 +23,7 @@ export default {
         const comingEvents = computed(() => store.state.comingEvents);
         const pastEvents = computed(() => store.state.pastEvents);
 
-        console.log(comingEvents.value);
+        // console.log(comingEvents.value);
         // pastEvents.value.forEach((event) => {
         //     event.id = uuidv4();
         // });

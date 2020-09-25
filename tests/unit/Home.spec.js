@@ -1,23 +1,27 @@
-// import { shallowMount } from '@vue/test-utils';
-// import Home from '@/views/Home.vue';
-// import createLocalVue from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
+import Home from '@/views/Home.vue';
 
-// console.log(createLocalVue);
-// import Vuex from 'vuex';
+import { createStore } from 'vuex';
 
-// describe('Home.vue', () => {
-//     let wrapper;
-//     let store;
-//     beforeEach(() => {
-//         store = new Vuex.Store({
-//             state: {},
-//         });
+const store = createStore({
+    state() {
+        return {
+            events: [],
+        };
+    },
+});
 
-//         wrapper = shallowMount(Home, {
-//             store,
-//         });
-//     });
+describe('Home.vue', () => {
+    let wrapper;
 
-//     it('should have li element', () => {});
-// });
-it('fuck this', () => {});
+    beforeEach(() => {
+        wrapper = shallowMount(Home, {
+            global: {
+                plugins: [store],
+            },
+        });
+    });
+
+    it('should have li element', () => {});
+});
+// it('fuck this', () => {});
