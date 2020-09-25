@@ -6,7 +6,7 @@ import { createStore } from 'vuex';
 const store = createStore({
     state() {
         return {
-            events: [],
+            pastEvents: ['1', '2', '3', '4'],
         };
     },
 });
@@ -22,6 +22,14 @@ describe('Home.vue', () => {
         });
     });
 
-    it('should have li element', () => {});
+    it('should have a div with class of home', () => {
+        let element = wrapper.find('.home');
+        expect(element.exists()).toBe(true);
+    });
+
+    it('should have li elements', () => {
+        let elements = wrapper.findAll('ul li');
+        expect(elements).toBeTruthy();
+    });
 });
 // it('fuck this', () => {});
