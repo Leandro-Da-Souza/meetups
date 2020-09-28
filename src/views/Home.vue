@@ -5,7 +5,11 @@
       <button @click="toggle = false">Past Events</button>
     </div>
     <ul v-if="!toggle">
-      <li v-for="event in pastEvents" :key="event.id">
+      <li
+        v-for="event in pastEvents"
+        :key="event.id"
+        @click="sendToEvent(event.id)"
+      >
         <img :src="event.picture" alt="" />
         <h3>{{ event.title }}</h3>
         <hr />
@@ -16,7 +20,11 @@
       </li>
     </ul>
     <ul v-else>
-      <li v-for="event in comingEvents" :key="event.id">
+      <li
+        v-for="event in comingEvents"
+        :key="event.id"
+        @click="sendToEvent(event.id)"
+      >
         <img :src="event.picture" alt="" />
         <h3>{{ event.title }}</h3>
         <hr />
@@ -43,8 +51,8 @@ export default {
 
     const comingEvents = computed(() => store.state.comingEvents);
     const pastEvents = computed(() => store.state.pastEvents);
-    const toggleFunction = () => {
-      toggle.value = !toggle.value;
+    const sendToEvent = (id) => {
+      console.log(id);
     };
 
     console.log(pastEvents.value);
@@ -57,8 +65,8 @@ export default {
       comingEvents,
       pastEvents,
       store,
-      toggleFunction,
       toggle,
+      sendToEvent,
     };
   },
 };
@@ -71,5 +79,21 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-gap: 20px;
+}
+
+.home li {
+  cursor: pointer;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-evenly;
+}
+.categories button {
+  padding: 5px;
+  box-shadow: 4px 5px 3px 0px rgba(0, 0, 0, 0.75);
+}
+.active {
+  border: 1px solid whitesmoke;
 }
 </style>
