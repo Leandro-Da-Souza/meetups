@@ -5,6 +5,7 @@ export default createStore({
         comingEvents: [],
         pastEvents: [],
         myEvents: [],
+        reviews: [],
     },
     mutations: {
         SET_COMING_EVENTS: (state, data) => {

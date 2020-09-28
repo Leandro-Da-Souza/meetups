@@ -1,23 +1,35 @@
-// import { shallowMount } from '@vue/test-utils';
-// import Home from '@/views/Home.vue';
-// import createLocalVue from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
+import Home from '@/views/Home.vue';
 
-// console.log(createLocalVue);
-// import Vuex from 'vuex';
+import { createStore } from 'vuex';
 
-// describe('Home.vue', () => {
-//     let wrapper;
-//     let store;
-//     beforeEach(() => {
-//         store = new Vuex.Store({
-//             state: {},
-//         });
+const store = createStore({
+    state() {
+        return {
+            pastEvents: ['1', '2', '3', '4'],
+        };
+    },
+});
 
-//         wrapper = shallowMount(Home, {
-//             store,
-//         });
-//     });
+describe('Home.vue', () => {
+    let wrapper;
 
-//     it('should have li element', () => {});
-// });
-it('fuck this', () => {});
+    beforeEach(() => {
+        wrapper = shallowMount(Home, {
+            global: {
+                plugins: [store],
+            },
+        });
+    });
+
+    it('should have a div with class of home', () => {
+        let element = wrapper.find('.home');
+        expect(element.exists()).toBe(true);
+    });
+
+    it('should have li elements', () => {
+        let elements = wrapper.findAll('ul li');
+        expect(elements).toBeTruthy();
+    });
+});
+// it('fuck this', () => {});

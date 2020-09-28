@@ -3,31 +3,31 @@
         {
             "pastEvents": [
                 {
-                    "title": "",
+                    "title": "Mgla",
                     "category": "Music",
                     "photo": "",
-                    "location": "",
+                    "location": "Stockholm, Sweden",
                     "date": ""
                 },
                 {
-                    "title": "",
+                    "title": "Black Mass",
                     "category": "Religion",
                     "photo": "",
-                    "location": "",
+                    "location": "Gothenburg, Sweden",
                     "date": ""
                 },
                 {
-                    "title": "",
+                    "title": "Kitchen Madness",
                     "category": "Food",
                     "photo": "",
-                    "location": "",
+                    "location": "Your Kitchen, Sweden",
                     "date": ""
                 },
                 {
-                    "title": "",
+                    "title": "Tupac Hologram",
                     "category": "Music",
                     "photo": "",
-                    "location": "",
+                    "location": "The Suburbs, Sweden",
                     "date": ""
                 }
             ]
