@@ -35,31 +35,31 @@
         {
             "comingEvents": [
                 {
-                    "title": "",
-                    "category": "",
+                    "title": "Swans",
+                    "category": "Music",
                     "photo": "",
-                    "location": "",
+                    "location": "Stockholm, Sweden",
                     "date": ""
                 },
                 {
-                    "title": "",
-                    "category": "",
+                    "title": "Food From Around The World",
+                    "category": "Food",
                     "photo": "",
-                    "location": "",
+                    "location": "Trollhatan, Sweden",
                     "date": ""
                 },
                 {
-                    "title": "",
-                    "category": "",
+                    "title": "Hare Krishna Meet",
+                    "category": "Spirituell",
                     "photo": "",
-                    "location": "",
+                    "location": "Malmo, Sweden",
                     "date": ""
                 },
                 {
-                    "title": "",
-                    "category": "",
+                    "title": "Networkers Inc",
+                    "category": "Networking",
                     "photo": "",
-                    "location": "",
+                    "location": "Gothenburg, Seden",
                     "date": ""
                 }
             ]
