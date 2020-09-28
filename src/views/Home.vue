@@ -38,8 +38,9 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, getCurrentInstance, ref } from "vue";
 import { useStore } from "vuex";
+
 // @ is an alias to /src
 
 export default {
@@ -48,19 +49,15 @@ export default {
   setup() {
     const toggle = ref(true);
     const store = useStore();
+    const context = getCurrentInstance();
+    const routerPush = context.root.root.ctx.$router;
 
     const comingEvents = computed(() => store.state.comingEvents);
     const pastEvents = computed(() => store.state.pastEvents);
     const sendToEvent = (id) => {
-      console.log(id);
+      routerPush.push(`/event/${id}`);
     };
 
-    console.log(pastEvents.value);
-
-    // console.log(comingEvents.value);
-    // pastEvents.value.forEach((event) => {
-    //     event.id = uuidv4();
-    // });
     return {
       comingEvents,
       pastEvents,
