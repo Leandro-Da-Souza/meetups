@@ -12,7 +12,7 @@
 <script>
 // import { computed } from 'vue';
 import { useStore } from "vuex";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import * as DB from "../db.json";
 
 import Navigation from "./components/Navigation";
@@ -41,14 +41,14 @@ export default {
     console.log(randomDate(new Date(), new Date()).getFullYear());
 
     dbComingEvents.forEach((event) => {
-      event.id = uuidv4();
+      //   event.id = uuidv4();
       event.attending = false;
       getRandomPic(event);
       event.date = randomDate(new Date(), new Date()).getFullYear();
     });
 
     dbPastEvents.forEach((event) => {
-      event.id = uuidv4();
+      //   event.id = uuidv4();
       event.attended = false;
       getRandomPic(event);
       event.date = randomDate(new Date(2012, 0, 1), new Date()).getFullYear();

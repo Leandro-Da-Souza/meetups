@@ -1,11 +1,16 @@
 <template>
-  <div class="event">{{ event[0].title }}</div>
+  <div class="event">
+    <img :src="imgSrc" alt="" />
+    <h2>{{ event.title }}</h2>
+    <h2>{{ event.location }}</h2>
+    <span>{{ event.date }}</span>
+  </div>
 </template>
 
 <script>
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import { computed, watch } from "vue";
+import { computed } from "vue";
 
 export default {
   setup() {
@@ -26,15 +31,11 @@ export default {
         return item.id == route.params.id;
       })
     );
-
-    watch(() => {
-      if (event === []) {
-        useRoute.push("/");
-      }
-    });
+    let imgSrc = `http://placeimg.com/400/300/${event.value[0].picture}`;
 
     return {
-      event,
+      event: event.value[0],
+      imgSrc,
     };
   },
 };
@@ -42,7 +43,7 @@ export default {
 
 <style scoped>
 img {
-  width: 100px;
-  height: 100px;
+  width: 90%;
+  height: 90%;
 }
 </style>

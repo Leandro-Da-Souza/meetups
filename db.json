@@ -3,6 +3,7 @@
         {
             "pastEvents": [
                 {
+                    "id": "0",
                     "title": "Mgla",
                     "category": "Music",
                     "photo": "",
@@ -10,6 +11,7 @@
                     "date": ""
                 },
                 {
+                    "id": "1",
                     "title": "Black Mass",
                     "category": "Religion",
                     "photo": "",
@@ -17,6 +19,7 @@
                     "date": ""
                 },
                 {
+                    "id": "2",
                     "title": "Kitchen Madness",
                     "category": "Food",
                     "photo": "",
@@ -24,6 +27,7 @@
                     "date": ""
                 },
                 {
+                    "id": "3",
                     "title": "Tupac Hologram",
                     "category": "Music",
                     "photo": "",
@@ -35,6 +39,7 @@
         {
             "comingEvents": [
                 {
+                    "id": "4",
                     "title": "Swans",
                     "category": "Music",
                     "photo": "",
@@ -42,6 +47,7 @@
                     "date": ""
                 },
                 {
+                    "id": "5",
                     "title": "Food From Around The World",
                     "category": "Food",
                     "photo": "",
@@ -49,6 +55,7 @@
                     "date": ""
                 },
                 {
+                    "id": "6",
                     "title": "Hare Krishna Meet",
                     "category": "Spirituell",
                     "photo": "",
@@ -56,6 +63,7 @@
                     "date": ""
                 },
                 {
+                    "id": "7",
                     "title": "Networkers Inc",
                     "category": "Networking",
                     "photo": "",

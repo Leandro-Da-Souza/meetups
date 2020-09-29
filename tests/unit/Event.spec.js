@@ -1,14 +1,37 @@
 import { shallowMount } from '@vue/test-utils';
 import Event from '@/views/Event';
 import { createStore } from 'vuex';
+import { createRouter } from 'vue-router';
 
 const store = createStore({
     state() {
         return {
-            pastEvents: [],
-            comingEvents: [],
+            pastEvents: [
+                {
+                    id: '0',
+                    title: 'Mgla',
+                    category: 'Music',
+                    picture: 'something',
+                    location: 'Stockholm, Sweden',
+                    date: 'something',
+                },
+            ],
+            comingEvents: [
+                {
+                    id: '0',
+                    title: 'Mgla',
+                    category: 'Music',
+                    picture: 'something',
+                    location: 'Stockholm, Sweden',
+                    date: 'something',
+                },
+            ],
         };
     },
+});
+
+const router = createRouter({
+    routes: [],
 });
 
 describe('Event.vue', () => {
@@ -16,7 +39,10 @@ describe('Event.vue', () => {
     beforeEach(() => {
         wrapper = shallowMount(Event, {
             global: {
-                plugins: [store],
+                plugins: [store, router],
+                stubs: {
+                    shallow: true,
+                },
             },
         });
     });
@@ -24,5 +50,7 @@ describe('Event.vue', () => {
         let element = wrapper.find('.event');
         expect(element.exists()).toBe(true);
     });
-    it('should retrive data from store', () => {});
+    it('should retrive data from store', () => {
+        console.log(wrapper);
+    });
 });
