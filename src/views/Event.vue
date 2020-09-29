@@ -1,23 +1,48 @@
 <template>
-  <div class="event"></div>
+  <div class="event">{{ event[0].title }}</div>
 </template>
 
 <script>
-import { getCurrentInstance } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+import { computed, watch } from "vue";
 
 export default {
   setup() {
     const store = useStore();
-    const context = getCurrentInstance();
-    console.log(context);
+    const route = useRoute();
+    let event;
+
+    const dbComingEvents = computed(() => store.state.comingEvents);
+    const dbPastEvents = computed(() => store.state.pastEvents);
+
+    let allEvents = Array.from(dbComingEvents.value);
+    dbPastEvents.value.forEach((event) => {
+      allEvents.push(event);
+    });
+
+    event = computed(() =>
+      allEvents.filter((item) => {
+        return item.id == route.params.id;
+      })
+    );
+
+    watch(() => {
+      if (event === []) {
+        useRoute.push("/");
+      }
+    });
 
     return {
-      store,
+      event,
     };
   },
 };
 </script>
 
-<style>
+<style scoped>
+img {
+  width: 100px;
+  height: 100px;
+}
 </style>
