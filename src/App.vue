@@ -38,8 +38,6 @@ export default {
       );
     }
 
-    console.log(randomDate(new Date(), new Date()).getFullYear());
-
     dbComingEvents.forEach((event) => {
       //   event.id = uuidv4();
       event.attending = false;
@@ -56,14 +54,6 @@ export default {
 
     store.commit("SET_COMING_EVENTS", dbComingEvents);
     store.commit("SET_PAST_EVENTS", dbPastEvents);
-
-    // const comingEvents = computed(() => store.state.comingEvents);
-    // const pastEvents = computed(() => store.state.pastEvents);
-
-    // console.log(comingEvents.value);
-    // pastEvents.value.forEach((event) => {
-    //     event.id = uuidv4();
-    // });
   },
 };
 </script>
