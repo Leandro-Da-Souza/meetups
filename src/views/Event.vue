@@ -72,6 +72,7 @@ export default {
       store.commit("SET_MY_REVIEWS", reviewData);
 
       review.value = "";
+      window.scrollTo(0, document.body.scrollHeight);
     };
 
     watch(storeReviews.value, () => {
