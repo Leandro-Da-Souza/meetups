@@ -14,7 +14,7 @@
           <textarea
             name=""
             id=""
-            cols="30"
+            cols="40"
             rows="10"
             v-model="review"
             placeholder="Write something..."
@@ -109,7 +109,7 @@ img {
 .form-group {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 15px;
 }
 
 .form-group textarea {
