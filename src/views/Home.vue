@@ -38,8 +38,9 @@
 </template>
 
 <script>
-import { computed, getCurrentInstance, ref } from "vue";
+import { computed, ref } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 // @ is an alias to /src
 
@@ -49,13 +50,15 @@ export default {
   setup() {
     const toggle = ref(true);
     const store = useStore();
-    const context = getCurrentInstance();
-    const routerPush = context.root.root.ctx.$router;
+    // const context = getCurrentInstance();
+    // const routerPush = context.root.root.ctx.$router;
+    const router = useRouter();
+    // console.log(router);
 
     const comingEvents = computed(() => store.state.comingEvents);
     const pastEvents = computed(() => store.state.pastEvents);
     const sendToEvent = (id) => {
-      routerPush.push(`/event/${id}`);
+      router.push(`/event/${id}`);
     };
 
     return {
