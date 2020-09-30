@@ -4,7 +4,9 @@
       <h2>{{ event.title }}</h2>
       <img :src="imgSrc" alt="" />
       <h2>{{ event.location }}</h2>
-      <span>{{ event.date }}</span>
+      <p>{{ event.date }}</p>
+      <p>{{ attending ? "Attending!" : "Click Button To Attend!" }}</p>
+      <button @click="attending = !attending">Attend Event</button>
     </div>
 
     <div class="form">
@@ -19,6 +21,7 @@
             v-model="review"
             placeholder="Write something..."
           ></textarea>
+
           <button>Add Review</button>
         </div>
       </form>
@@ -43,6 +46,7 @@ export default {
   setup() {
     const store = useStore();
     const route = useRoute();
+    let attending = ref(false);
     let review = ref("");
     let eventReview = ref("");
     let event;
@@ -87,6 +91,7 @@ export default {
       review,
       addReview,
       eventReview,
+      attending,
     };
   },
 };
@@ -104,6 +109,15 @@ img {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.event button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  box-shadow: 4px 5px 3px 0px rgba(0, 0, 0, 0.75);
+}
+.event p {
+  margin-bottom: 5px;
 }
 
 .form-group {
