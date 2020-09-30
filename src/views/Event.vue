@@ -17,10 +17,19 @@
             cols="30"
             rows="10"
             v-model="review"
+            placeholder="Write something..."
           ></textarea>
           <button>Add Review</button>
         </div>
       </form>
+    </div>
+
+    <div class="reviews" v-if="eventReview !== ''">
+      <ul>
+        <li v-for="review in eventReview" :key="review.id">
+          <p>{{ review.review }}</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -28,18 +37,17 @@
 <script>
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 export default {
   setup() {
     const store = useStore();
     const route = useRoute();
     let review = ref("");
+    let eventReview = ref("");
     let event;
-    let reviewData;
 
     let storeReviews = computed(() => store.state.reviews);
-
     const dbComingEvents = computed(() => store.state.comingEvents);
     const dbPastEvents = computed(() => store.state.pastEvents);
 
@@ -56,27 +64,28 @@ export default {
     let imgSrc = `http://placeimg.com/400/300/${event.value[0].category}`;
 
     const addReview = () => {
-      reviewData = {
+      let reviewData = {
         id: route.params.id,
         review: review.value,
       };
 
-      storeReviews.value.forEach((item) => {
-        if (item.id === reviewData.id) {
-          store.commit("UPDATE_MY_REVIEW", reviewData);
-        } else {
-          store.commit("SET_MY_REVIEWS", reviewData);
-        }
-      });
+      store.commit("SET_MY_REVIEWS", reviewData);
 
-      console.log(storeReviews.value);
+      review.value = "";
     };
+
+    watch(storeReviews.value, () => {
+      eventReview.value = storeReviews.value.filter(
+        (item) => item.id === route.params.id
+      );
+    });
 
     return {
       event: event.value[0],
       imgSrc,
       review,
       addReview,
+      eventReview,
     };
   },
 };
@@ -113,5 +122,13 @@ img {
   width: 100%;
   margin-top: 5px;
   box-shadow: 4px 5px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.reviews ul {
+  list-style-type: none;
+}
+
+.reviews li p {
+  font-size: 1.2rem;
 }
 </style>
