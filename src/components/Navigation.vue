@@ -19,7 +19,7 @@ export default {
     const changeRoute = (e) => {
       let path = e.path[0].innerText;
       if (path === "My Events") {
-        router.push({ name: "My Events" });
+        router.push({ name: "Home" });
       }
       if (path === "About") {
         router.push({ name: "About" });
